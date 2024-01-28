@@ -1,0 +1,16 @@
+export const categoryData = [
+  { _id: "0", title: "Historical" },
+  { _id: "1", title: "Musical" },
+  { _id: "2", title: "Drame" },
+  { _id: "3", title: "Mystery" },
+  { _id: "4", title: "Romatic" },
+  { _id: "5", title: "Comedy" },
+  { _id: "6", title: "science" },
+  { _id: "7", title: "science" },
+  { _id: "8", title: "science" },
+  { _id: "9", title: "science" },
+  { _id: "10", title: "science" },
+  { _id: "11", title: "science" },
+  { _id: "12", title: "science" },
+  { _id: "14", title: "science" },
+];
