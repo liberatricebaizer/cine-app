@@ -16,7 +16,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "2a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -32,7 +32,7 @@ export const Movies = [
   },
   {
     name: "May December",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "3a.jpg",
     directorImage: "3a.jpg",
     image: "2a.jpg",
@@ -48,7 +48,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "4a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -64,7 +64,7 @@ export const Movies = [
   },
   {
     name: "May December",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "5a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -80,7 +80,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "6a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -96,7 +96,7 @@ export const Movies = [
   },
   {
     name: "May December",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "7a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -112,7 +112,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -128,7 +128,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -144,7 +144,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -160,7 +160,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -176,7 +176,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -192,7 +192,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -208,7 +208,7 @@ export const Movies = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -287,7 +287,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "2a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -303,7 +303,7 @@ export const MovieTrends = [
   },
   {
     name: "May December",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "3a.jpg",
     directorImage: "3a.jpg",
     image: "2a.jpg",
@@ -319,7 +319,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "4a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -335,7 +335,7 @@ export const MovieTrends = [
   },
   {
     name: "May December",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "5a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -351,7 +351,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "6a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -367,7 +367,7 @@ export const MovieTrends = [
   },
   {
     name: "May December",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "7a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -383,7 +383,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -399,7 +399,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -415,7 +415,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -431,7 +431,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -447,7 +447,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -463,7 +463,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
@@ -479,7 +479,7 @@ export const MovieTrends = [
   },
   {
     name: "Forever my girl",
-    desc: "helllllooooo",
+    desc: "A beautifully complicated story about the choices that shape who we become.",
     titleImage: "8a.jpg",
     directorImage: "1a.jpg",
     image: "2a.jpg",
