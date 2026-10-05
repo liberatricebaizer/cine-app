@@ -4,23 +4,29 @@ import { Link } from "react-router-dom";
 
 const Movie = ({ movie }) => {
   return (
-    <>
-      <div className="  bg-dry  hover:scale-95 transitions  rounded-md overflow-hidden">
-        <Link to={`/movie/${movie?.name}`} className="w-full ">
-          <img
-            src={`/images/${movie?.titleImage}`}
-            alt={movie?.name}
-            className="w-full h-56 object-cover"
-          />
-        </Link>
-        <div className="flex-btn  gap-2 bottom-0 right-0 left-0 bg-main bg-opacity-60 text-white px-4 ">
-          <h3 className="font-semibold truncate">{movie?.name}</h3>
-          <button className="h-9 w-9 text-sm flex-colo transitions hover:bg-transparent border-subMain rounded-md bg-groon text-white">
-            <FaHeart />
-          </button>
+    <article className="group overflow-hidden rounded-2xl border border-white/10 bg-dry shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-groon/50">
+      <Link to={`/movie/${movie?.name}`} className="relative block aspect-[2/3] overflow-hidden">
+        <img
+          src={`/images/${movie?.titleImage}`}
+          alt={`${movie?.name} poster`}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/5 to-transparent" />
+        <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
+          {movie?.category}
+        </span>
+        <span className="absolute bottom-3 left-4 text-sm font-medium text-white">{movie?.year}</span>
+      </Link>
+      <div className="flex items-center justify-between gap-3 px-4 py-4">
+        <div className="min-w-0">
+          <h3 className="truncate font-semibold text-white">{movie?.name}</h3>
+          <p className="mt-1 text-xs text-text">{movie?.time} · {movie?.language}</p>
         </div>
+        <button aria-label={`Add ${movie?.name} to favorites`} className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/5 text-text transition hover:bg-groon hover:text-main">
+          <FaHeart />
+        </button>
       </div>
-    </>
+    </article>
   );
 };
 
