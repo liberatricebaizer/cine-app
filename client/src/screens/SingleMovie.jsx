@@ -14,7 +14,9 @@ const SingleMovie = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const { id } = useParams();
   const movie = Movies.find((movie) => movie.name === id);
-  const RelatedMovies = Movies.filter((m) => m.category === movie.category);
+  const relatedMovies = movie
+    ? Movies.filter((m) => m.category === movie.category && m.name !== movie.name)
+    : [];
   return (
     <Layout>
       <ShareModal
@@ -29,7 +31,7 @@ const SingleMovie = () => {
         <div className="my-16">
           <Titles title="Related Movies" Icon={BiSolidCollection} />
           <div className="grid sm:mt-10 mt-6 xl:grid-cols-4 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-6">
-            {RelatedMovies.map((movie, index) => (
+            {relatedMovies.map((movie, index) => (
               <Movie key={index} movie={movie} />
             ))}
           </div>
