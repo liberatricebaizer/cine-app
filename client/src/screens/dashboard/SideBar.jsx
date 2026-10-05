@@ -1,11 +1,7 @@
 import React from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaHeart, FaListAlt, FaUsers } from "react-icons/fa";
-import {
-  RiLockPasswordFill,
-  RiLockPasswordLine,
-  RiMovie2Fill,
-} from "react-icons/ri";
+import { RiLockPasswordLine, RiMovie2Fill } from "react-icons/ri";
 import { HiViewGridAdd } from "react-icons/hi";
 import { FiSettings } from "react-icons/fi";
 import Layout from "../../layout/Layout";
