@@ -2,10 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-weight: 400;
+  background: #07090f;
+  color: #f8fafc;
+}
+
+h1, h2, h3, h4, .brand-mark {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+::selection {
+  background: #20cc97;
+  color: #07090f;
 }
 input:focus,
 textarea:focus,
@@ -15,6 +36,24 @@ select:focus {
 }
 .linear-bg {
   background: linear-gradient(269.82deg, #07091c00 0.17%, #080a1ad6 99.87%);
+}
+
+.hero-swiper .swiper-pagination {
+  bottom: 24px;
+  left: 24px;
+  text-align: left;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  background: #fff;
+  opacity: .35;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 999px;
+  background: #20cc97;
+  opacity: 1;
 }
 .hoveres {
   @apply hidden;
