@@ -29,7 +29,7 @@ const SingleMovie = () => {
         <div className="my-16">
           <Titles title="Related Movies" Icon={BiSolidCollection} />
           <div className="grid sm:mt-10 mt-6 xl:grid-cols-4 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-6">
-            {RelatedMovies.map((movie, index) => (
+            {Movies.map((movie, index) => (
               <Movie key={index} movie={movie} />
             ))}
           </div>

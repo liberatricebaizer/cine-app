@@ -2,6 +2,7 @@ import React from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaHeart, FaListAlt, FaUsers } from "react-icons/fa";
 import {
+  RiLockPasswordFill,
   RiLockPasswordLine,
   RiMovie2Fill,
 } from "react-icons/ri";
