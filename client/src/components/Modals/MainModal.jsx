@@ -1,7 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
-import { MdHowToReg } from "react-icons/md";
 
 const MainModal = ({ modalOpen, setModalOpen, children }) => {
   const cancelButtonRef = useRef();

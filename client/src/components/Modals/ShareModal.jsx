@@ -1,10 +1,8 @@
 import React from "react";
 import MainModal from "./MainModal";
-import { Input } from "../UsedInputs";
 import {
   FaFacebook,
   FaPinterest,
-  FaPlusCircle,
   FaTelegram,
   FaTwitter,
   FaWhatsapp,

@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "aos";
 import "aos/dist/aos.css";
-import { Provider } from "react-redux";
 ReactDOM.render(
   <BrowserRouter>
     <App />
