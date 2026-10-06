@@ -11,7 +11,7 @@ const SideBar = ({ children }) => {
   const SideLinks = [
     { name: "Dashboard", link: "/dashboard", icon: BsFillGridFill },
     { name: "Movies List", link: "/moviesList", icon: FaListAlt },
-    { name: "Add Movie", link: "/addmovie", icon: RiMovie2Fill },
+    { name: "Add Movie", link: "/addMovie", icon: RiMovie2Fill },
     { name: "Categories", link: "/categories", icon: HiViewGridAdd },
     { name: "Users", link: "/users", icon: FaUsers },
     { name: "Update Profile", link: "/profile", icon: FiSettings },
