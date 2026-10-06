@@ -17,8 +17,8 @@ const TimeData = [
   { title: "Sort By Hours" },
   { title: "1 - 5" },
   { title: "5 - 10" },
-  { title: "10 -1 5" },
-  { title: "15 - 15" },
+  { title: "10 - 15" },
+  { title: "15 - 20" },
 ];
 const RatesData = [
   { title: "Sort By Rates" },

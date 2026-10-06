@@ -13,6 +13,12 @@ const defaults = {
   rate: { title: "Sort By Rates" },
 };
 
+const durationInMinutes = (duration = "") => {
+  const hours = Number(duration.match(/(\\d+)\\s*hr/)?.[1] || 0);
+  const minutes = Number(duration.match(/(\\d+)\\s*min/)?.[1] || 0);
+  return hours * 60 + minutes;
+};
+
 const MoviesPage = () => {
   const [page, setPage] = useState(10);
   const [searchParams] = useSearchParams();
@@ -21,15 +27,15 @@ const MoviesPage = () => {
 
   const filteredMovies = useMemo(() => Movies.filter((movie) => {
     const searchable = `${movie.name} ${movie.category} ${movie.language} ${movie.nameDirector}`.toLowerCase();
-    const category = filters.category.title === "Category" || searchable.includes(filters.category.title.toLowerCase());
+    const category = filters.category.title === "Category" || movie.category.toLowerCase() === filters.category.title.toLowerCase();
     const year = filters.year.title === "Sort By Year" || (() => {
       const [from, to] = filters.year.title.split(" - ").map(Number);
       return Number(movie.year) >= from && Number(movie.year) <= to;
     })();
-    const hours = Number.parseFloat(movie.time) * 60 + (movie.time.includes("hr") ? Number.parseInt(movie.time.match(/(\d+) min/)?.[1] || "0", 10) : 0);
+    const duration = durationInMinutes(movie.time);
     const time = filters.time.title === "Sort By Hours" || (() => {
       const [from, to] = filters.time.title.split(" - ").map(Number);
-      return hours >= from * 60 && hours <= to * 60;
+      return duration >= from * 60 && duration < to * 60;
     })();
     const rate = filters.rate.title === "Sort By Rates" || Math.round(movie.rate / 100) === Number.parseInt(filters.rate.title, 10);
     return (!query || searchable.includes(query)) && category && year && time && rate;
