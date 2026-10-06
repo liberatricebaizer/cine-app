@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Movie = ({ movie }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
   return (
     <article className="group overflow-hidden rounded-2xl border border-white/10 bg-dry shadow-xl shadow-black/10 transition duration-300 hover:-translate-y-1 hover:border-groon/50">
       <Link to={`/movie/${movie?.name}`} className="relative block aspect-[2/3] overflow-hidden">
@@ -22,7 +24,13 @@ const Movie = ({ movie }) => {
           <h3 className="truncate font-semibold text-white">{movie?.name}</h3>
           <p className="mt-1 text-xs text-text">{movie?.time} · {movie?.language}</p>
         </div>
-        <button aria-label={`Add ${movie?.name} to favorites`} className="flex size-9 shrink-0 items-center justify-center rounded-full bg-white/5 text-text transition hover:bg-groon hover:text-main">
+        <button
+          type="button"
+          aria-label={`${isFavorite ? "Remove" : "Add"} ${movie?.name} ${isFavorite ? "from" : "to"} favorites`}
+          aria-pressed={isFavorite}
+          onClick={() => setIsFavorite((favorite) => !favorite)}
+          className={`flex size-9 shrink-0 items-center justify-center rounded-full transition ${isFavorite ? "bg-groon text-main" : "bg-white/5 text-text hover:bg-groon hover:text-main"}`}
+        >
           <FaHeart />
         </button>
       </div>
