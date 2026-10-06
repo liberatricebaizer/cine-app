@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { categoryData } from "../data/CategoriesData";
 
 import { Listbox, Transition } from "@headlessui/react";
@@ -28,25 +28,24 @@ const RatesData = [
   { title: "4 Star" },
   { title: "5 Star" },
 ];
-const Filters = () => {
-  const [category, setCategory] = useState({ title: "Category" });
-  const [year, setYear] = useState(YearData[0]);
-  const [times, setTimes] = useState(TimeData[0]);
-  const [rates, setRates] = useState(RatesData[0]);
-
+const Filters = ({ value, onChange }) => {
   const Filter = [
-    { value: category, onChange: setCategory, items: categoryData },
-    { value: year, onChange: setYear, items: YearData },
-    { value: times, onChange: setTimes, items: TimeData },
-    { value: rates, onChange: setRates, items: RatesData },
+    { key: "category", items: categoryData },
+    { key: "year", items: YearData },
+    { key: "time", items: TimeData },
+    { key: "rate", items: RatesData },
   ];
   return (
     <div className="my-6 bg-dry text-dryGray border-gray-800 grid md:grid-cols-4 grid-cols-2 lg:gap-12 gap-2 rounded p-6">
-      {Filter.map((item, index) => (
-        <Listbox key={index} value={item.value} onChange={item.onChange}>
+      {Filter.map((item) => (
+        <Listbox
+          key={item.key}
+          value={value[item.key]}
+          onChange={(nextValue) => onChange(item.key, nextValue)}
+        >
           <div className="relative">
-            <Listbox.Button className="relative border border-gray-800 w-full text-white bg-main rounded-lg  shadow-sm cursor-default py-4 pl-6 pr-10 text-left text-sm">
-              <span className="block truncate">{item.value.title}</span>
+            <Listbox.Button className="relative border border-gray-800 w-full text-white bg-main rounded-lg shadow-sm cursor-default py-4 pl-6 pr-10 text-left text-sm">
+              <span className="block truncate">{value[item.key].title}</span>
               <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none ">
                 <FaAngleDown className="h-4 w-4 aria-hidden='true" />
               </span>
