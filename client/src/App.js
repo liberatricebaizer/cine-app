@@ -1,8 +1,7 @@
-import { Route, Routes, Navigate, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import AboutUs from "./screens/AboutUs";
 import NotFound from "./screens/NotFound";
-import NavBar from "./layout/NavBar";
 import ContactUs from "./screens/ContactUs";
 import MoviesPage from "./screens/Movies";
 import SingleMovie from "./screens/SingleMovie";
@@ -20,7 +19,7 @@ import Categories from "./screens/dashboard/admin/Categories";
 import Users from "./screens/dashboard/admin/Users";
 import AddMovie from "./screens/dashboard/admin/AddMovie";
 import ScrollOnTop from "./ScrollOnTop";
-import DrawerContext, { SidebarContext } from "./context/DrawerContext";
+import DrawerContext from "./context/DrawerContext";
 function App() {
   Aos.init();
 
