@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SideBar from "../SideBar";
 import { FaRegListAlt, FaUser } from "react-icons/fa";
 import { HiViewGridAdd } from "react-icons/hi";
@@ -31,8 +32,8 @@ const Dashboard = () => {
       <h2 className="text-xl font-bold">Dashboard</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {DashboardData.map((data, index) => (
-          <div
-            key={index}
+<Link to={["/moviesList", "/categories", "/users"][index]}
+              key={index}
             className="p-4 rounded bg-main border-border grid grid-cols-4 gap-2"
           >
             <div
@@ -44,8 +45,8 @@ const Dashboard = () => {
               <h2>{data.title}</h2>
               <p className="mt-2 font-bold">{data.total}</p>
             </div>
-          </div>
-        ))}
+</Link>
+          ))}
       </div>
       <h3 className="text-md font-medium my-6 text-border">Recent Movies</h3>
       <Table data={Movies.slice(0, 5)} admin={true} />
