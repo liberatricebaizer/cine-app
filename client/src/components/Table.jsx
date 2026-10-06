@@ -6,7 +6,7 @@ import { GoEye } from "react-icons/go";
 const Head = "text-xs text-left text-dryGray font-semibold px-6 py-2 uppercase";
 const Text =
   "text-sm text-left leading-6 whitespace-nowrap px-6 py-2 uppercase";
-const Rows = (movie, i, admin) => {
+const Rows = (movie, i, admin, onDelete) => {
   return (
     <tr key={i}>
       <td className={`${Text}`}>
@@ -30,7 +30,7 @@ const Rows = (movie, i, admin) => {
             <button className="bg-dry flex-rows gap-2 border border-border w-16 h-8 text-white  rounded flex-colo    ">
               Edit <FaEdit className="text-green-500" />
             </button>{" "}
-            <button className="bg-groon text-white rounded flex-colo w-6 h-6">
+            <button onClick={() => onDelete?.(movie)} aria-label={`Delete ${movie.name}`} className="bg-groon text-white rounded flex-colo w-6 h-6">
               <MdDelete />
             </button>
           </>
@@ -51,7 +51,7 @@ const Rows = (movie, i, admin) => {
     </tr>
   );
 };
-function Table({ data, admin }) {
+function Table({ data, admin, onDelete }) {
   return (
     <div className="overflow-x-scroll overflow-hidden relative  w-full">
       <table className="w-full table-auto border border-border divide-y divide-border">
@@ -81,7 +81,7 @@ function Table({ data, admin }) {
           </tr>
         </thead>
         <tbody className="bg-main divide-y divide-gray-800">
-          {data.map((movie, i) => Rows(movie, i, admin))}
+          {data.map((movie, i) => Rows(movie, i, admin, onDelete))}
         </tbody>
       </table>
     </div>

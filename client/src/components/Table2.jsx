@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 const Head = "text-xs text-left text-dryGray font-semibold px-6 py-2 uppercase";
 const Text =
   "text-sm text-left leading-6 whitespace-nowrap px-6 py-2 uppercase";
-const Rows = (data, i, users, OnEditFunction) => {
+const Rows = (data, i, users, OnEditFunction, onDelete) => {
   return (
     <tr key={i}>
       {users ? (
@@ -26,7 +26,7 @@ const Rows = (data, i, users, OnEditFunction) => {
           <td className={`${Text}`}>{data.fullName}</td>
           <td className={`${Text}`}>{data.email}</td>
           <td className={`${Text} float-right flex-rows gap-2`}>
-            <button className="bg-groon text-white rounded flex-colo w-6 h-6">
+            <button onClick={() => onDelete?.(data)} aria-label="Delete row" className="bg-groon text-white rounded flex-colo w-6 h-6">
               <MdDelete />
             </button>
           </td>
@@ -47,7 +47,7 @@ const Rows = (data, i, users, OnEditFunction) => {
             >
               Edit <FaEdit className="text-green-500" />
             </button>{" "}
-            <button className="bg-groon text-white rounded flex-colo w-6 h-6">
+            <button onClick={() => onDelete?.(data)} aria-label="Delete row" className="bg-groon text-white rounded flex-colo w-6 h-6">
               <MdDelete />
             </button>
           </td>
@@ -56,7 +56,7 @@ const Rows = (data, i, users, OnEditFunction) => {
     </tr>
   );
 };
-function Table2({ data, users, OnEditFunction }) {
+function Table2({ data, users, OnEditFunction, onDelete }) {
   return (
     <div className="overflow-x-scroll overflow-hidden relative  w-full">
       <table className="w-full table-auto border border-border divide-y divide-border">
@@ -99,7 +99,7 @@ function Table2({ data, users, OnEditFunction }) {
           </tr>
         </thead>
         <tbody className="bg-main divide-y divide-gray-800">
-          {data.map((data, i) => Rows(data, i, users, OnEditFunction))}
+          {data.map((data, i) => Rows(data, i, users, OnEditFunction, onDelete))}
         </tbody>
       </table>
     </div>
