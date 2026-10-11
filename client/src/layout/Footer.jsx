@@ -34,9 +34,9 @@ const columns = [
 ];
 
 const socials = [
-  { Icon: FaInstagram, label: "Instagram" },
-  { Icon: FaFacebook, label: "Facebook" },
-  { Icon: FaTwitter, label: "Twitter" },
+  { Icon: FaInstagram, label: "Instagram", url: "https://www.instagram.com/your-profile", },
+  { Icon: FaFacebook, label: "Facebook", url: "https://www.facebook.com/your-profile", },
+  { Icon: FaTwitter, label: "Twitter", url: "https://www.twitter.com/your-profile", },
 ];
 
 const Footer = () => (
@@ -66,7 +66,7 @@ const Footer = () => (
             {socials.map(({ Icon, label }) => (
               <a
                 key={label}
-                href=""
+                href={url}
                 aria-label={label}
                 className="flex size-10 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/10 transition hover:bg-[#f4b942] hover:text-black"
               >
