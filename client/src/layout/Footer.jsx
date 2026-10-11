@@ -63,11 +63,12 @@ const Footer = () => (
             <a href="mailto:cineverse@gmail.com" className="transition hover:text-white">cineverse@gmail.com</a>
           </address>
           <div className="mt-6 flex gap-3">
-            {socials.map(({ Icon, label }) => (
+            {socials.map(({ Icon, label, url }) => (
               <a
                 key={label}
                 href={url}
                 aria-label={label}
+                target="_blank"
                 className="flex size-10 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/10 transition hover:bg-[#f4b942] hover:text-black"
               >
                 <Icon />
