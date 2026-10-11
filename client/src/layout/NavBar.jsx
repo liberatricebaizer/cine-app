@@ -1,9 +1,9 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaHeart, FaSearch, FaBars, FaTimes, FaPlay } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 
-const FAVORITES_COUNT = 2; // replace with the real count from your favorites state/context
+// const FAVORITES_COUNT = 2; // replace with the real count from your favorites state/context
 
 const links = [
   ["Home", "/"],

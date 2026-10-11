@@ -2,12 +2,12 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { BsCollectionPlay } from "react-icons/bs";
-import { FiHeart, FiHome, FiUserCheck } from "react-icons/fi";
+import { FiHome, FiUserCheck } from "react-icons/fi";
 import { CgMenuBoxed } from "react-icons/cg";
 import MenuDrawer from "../components/Drawer/MenuDrawer";
 import { SidebarContext } from "../context/DrawerContext";
 
-const FAVORITES_COUNT = 2; // replace with the real count from your favorites state/context
+// const FAVORITES_COUNT = 2; // replace with the real count from your favorites state/context
 
 const item = "flex flex-1 flex-col items-center gap-1 rounded-xl py-2 text-[11px] font-medium transition";
 const tabClass = ({ isActive }) =>

@@ -66,7 +66,7 @@ const Footer = () => (
             {socials.map(({ Icon, label }) => (
               <a
                 key={label}
-                href="#"
+                href=""
                 aria-label={label}
                 className="flex size-10 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/10 transition hover:bg-[#f4b942] hover:text-black"
               >

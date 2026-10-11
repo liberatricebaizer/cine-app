@@ -9,7 +9,6 @@ import { Movies } from "../data/MovieData";
 import MovieCard, { score } from "../components/MovieCard";
 import "swiper/css";
 import "swiper/css/navigation";
-import Footer from "../layout/Footer";
 import Layout from "../layout/Layout";
 
 const styles = `
