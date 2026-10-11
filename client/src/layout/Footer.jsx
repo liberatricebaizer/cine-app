@@ -17,11 +17,11 @@ const Footer = () => {
     {
       title: "Categories",
       links: [
-        { name: "Action", link: "#" },
-        { name: "Romantic", link: "#" },
-        { name: "Drama", link: "#" },
-        { name: "History", link: "#" },
-        { name: "Comedy", link: "#" },
+        { name: "Action", link: "/browser-movies?genre=Action" },
+        { name: "Romantic", link: "/browser-movies?genre=Romantic" },
+        { name: "Drama", link: "/browser-movies?genre=Drama" },
+        { name: "History", link: "/browser-movies?genre=History" },
+        { name: "Comedy", link: "/browser-movies?genre=Comedy" },
       ],
     },
     {
