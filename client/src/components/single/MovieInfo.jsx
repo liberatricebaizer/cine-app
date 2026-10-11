@@ -1,95 +1,100 @@
-import React from "react";
-import FlexMovieItems from "../FlexMovieItems";
-import { FaShareAlt } from "react-icons/fa";
+
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiLogIn } from "react-icons/fi";
+import { FaCloudDownloadAlt, FaHeart, FaPlay, FaShareAlt, FaStar } from "react-icons/fa";
+import { score } from "../MovieCard";
 
 const MovieInfo = ({ movie, setModalOpen }) => {
-  return (
-    <div className="w-full xl:h-screen relative text-white">
-      <img
-        // src={`/images/${movie?.image}`} this is the correct answer is the best image of every movie
-        src={`/images/${movie?.titleImage}`}
-        alt={movie.name}
-        className="w-full hidden xl:inline-block h-full object-cover"
-      />
-      <div className="xl:bg-main bg-dry flex-colo xl:bg-opacity-90 xl:absolute top-0 left-0 right-0 bottom-0 ">
-        <div className="container px-3 mx-auto 2xl:px-32 xl:grid grid-cols-3 flex-colo py-10 lg:py-20 gap-8">
-          <div className="xl:col-span-1 w-full xl:order-none order-last h-header bg-dry border border-gray-800 rounded-lg overflow-hidden">
-            <img
-              src={`/images/${movie?.titleImage}`}
-              alt={movie?.titleImage}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="col-span-2 md:grid grid-cols-5 gap-4 items-center">
-            <div className="col-span-3 flex flex-col gap-10">
-              <h1 className="xl:text-4xl capitalize font-sans text-2xl font-bold">
-                {movie?.name}
-              </h1>
-              <div className="flex items-center gap-4 fomt-medium text-dryGray">
-                <div className="flex-colo bg-groon text-xs px-2 py-1 ">
-                  HD 4K
-                </div>
-                <FlexMovieItems movie={movie && movie} />
-              </div>
-              <p className="text-text text-sm leading-7">{movie?.desc}</p>
-              <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-3 p-6 bg-main  roumded-lg">
-                <div className="col-span-1 flex-colo border-r border-border ">
-                  <button
-                    onClick={() => setModalOpen(true)}
-                    className="w-10 h-10 flex-colo rounded-lg bg-white bg-opacity-20"
-                  >
-                    <FaShareAlt />
-                  </button>
-                </div>
-                <div className="col-span-2 flex-colo font-medium text-sm">
-                  <p>
-                    Language :{" "}
-                    <span className="ml-2 truncate">{movie?.language}</span>
-                  </p>
-                </div>
-                <div className="sm:col-span-2 col-span-3 flex justify-end font-medium text-sm">
-                  <Link
-                    to={`/watch/${movie?.name}`}
-                    className="bg-dry py-4 hover:bg-groon transitions border-2 border-groon rounded-lg flex-rows gap-4 w-full sm:py-3"
-                  >
-                    {/* <FaPlay /> */}
-                    Watch Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-span-2 md:mt-0 mt-2 flex justify-end">
-              <button className="md:w-1/4 w-full relative flex-colo bg-groon hover:bg-transparent border-2 border-groon transitions md:h-64 h-20 rounded font-medium">
-                <div className="flex-rows gap-6 text-md uppercase translate-widest absolute md:rotate-90">
-                  Download <FiLogIn className="w-6 h-6" />
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+  const [liked, setLiked] = useState(false);
+  const src = movie.video || "/images/movie.mp4";
 
-      <div className="block my-4 p-8">
-        <h1 className="text-white text-3xl">Director</h1>
-        {/* {UsersData.map((user, i) => ( */}
+  return (
+    // -mt-20 slides the hero under the fixed navbar
+    <section className="relative -mt-20 overflow-hidden">
+      <img src={`/images/${movie.titleImage}`} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-[#0d0a12]/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0a12] via-[#0d0a12]/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0d0a12] via-[#0d0a12]/50 to-transparent" />
+
+      <div className="relative mx-auto grid w-full max-w-7xl items-end gap-10 px-5 pb-14 pt-36 sm:px-8 lg:grid-cols-[300px_1fr]">
+        <div className="mx-auto aspect-[2/3] w-52 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/15 lg:w-full">
+          <img src={`/images/${movie.titleImage}`} alt={`${movie.name} poster`} className="h-full w-full object-cover" />
+        </div>
+
         <div>
-          <div className="pt-4 flex gap-4 items-center">
-            <img
-              src={`/images/${movie?.directorImage}`}
-              alt={movie?.nameDirector}
-              className="w-20 h-20 rounded-full object-cover mb-2"
-            />
-            <div className="">
-              {" "}
-              <h1>{movie?.nameDirector}</h1>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-white/80">
+            <span className="flex items-center gap-1.5 rounded-full bg-[#f4b942] px-3 py-1 font-bold text-black">
+              <FaStar /> {score(movie)}
+            </span>
+            <span>{movie.year}</span>
+            <span>{movie.time}</span>
+            <span className="rounded-full border border-white/30 px-3 py-0.5">{movie.category}</span>
+            <span className="rounded-md bg-white/15 px-2 py-0.5 text-xs font-semibold">HD 4K</span>
+          </div>
+
+          <h1 className="cv-display mt-5 text-4xl font-extrabold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+            {movie.name}
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/75">{movie.desc}</p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              to={`/watch/${movie.name}`}
+              className="flex items-center gap-3 rounded-full bg-[#f4b942] px-8 py-4 font-bold text-black transition hover:bg-white"
+            >
+              <FaPlay className="text-sm" /> Watch now
+            </Link>
+            <a
+              href={src}
+              download
+              className="flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-7 py-4 font-semibold text-white backdrop-blur-md transition hover:bg-white/20"
+            >
+              <FaCloudDownloadAlt /> Download
+            </a>
+            <button
+              type="button"
+              onClick={() => setLiked((v) => !v)}
+              aria-pressed={liked}
+              aria-label={liked ? "Remove from favorites" : "Add to favorites"}
+              className={`flex size-14 items-center justify-center rounded-full ring-1 backdrop-blur-md transition ${liked ? "bg-[#f4b942] text-black ring-[#f4b942]" : "bg-white/10 text-white ring-white/20 hover:bg-white/20"
+                }`}
+            >
+              <FaHeart />
+            </button>
+            <button
+              type="button"
+              onClick={() => setModalOpen(true)}
+              aria-label="Share this movie"
+              className="flex size-14 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/20 backdrop-blur-md transition hover:bg-white/20"
+            >
+              <FaShareAlt />
+            </button>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5 border-t border-white/10 pt-6">
+            <div className="flex items-center gap-4">
+              <img
+                src={`/images/${movie.directorImage}`}
+                alt={movie.nameDirector}
+                className="size-14 rounded-full object-cover ring-2 ring-[#f4b942]"
+              />
+              <div>
+                <p className="text-xs text-[#a79fb5]">Director</p>
+                <p className="font-semibold capitalize text-white">{movie.nameDirector}</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs text-[#a79fb5]">Language</p>
+              <p className="font-semibold text-white">{movie.language}</p>
+            </div>
+            <div>
+              <p className="text-xs text-[#a79fb5]">Reviews</p>
+              <p className="font-semibold text-white">{movie.reviews}</p>
             </div>
           </div>
         </div>
-        {/* ))} */}
       </div>
-    </div>
+    </section>
   );
 };
 

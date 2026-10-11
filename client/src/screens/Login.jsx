@@ -1,43 +1,41 @@
+
 import React from "react";
-import Layout from "../layout/Layout";
-import { Input } from "../components/UsedInputs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
+import Layout from "../layout/Layout";
+import { AuthCard, Input } from "../components/UsedInputs";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const submit = (e) => {
+    e.preventDefault();
+    navigate("/dashboard"); // TODO: call your real sign-in here
+  };
+
   return (
     <Layout>
-      <div className="container mx-auto px-2 my-24 flex-colo">
-        <div className="w-full 2xl:w-2/5 gap-8 p-14 bg-dry rounded-lg  md:w-3/5 flex-colo ">
-          {/* <img src="" alt="" /> */}
-          <h1 className="text-groon text-2xl">Cineverse User login</h1>
-
-          <Input
-            label="Email Address  "
-            placeholder="cineverse@gmail.com"
-            type="email"
-            bg={true}
-          />
-          <Input
-            label="Password"
-            placeholder="*******"
-            type="password "
-            bg={true}
-          />
-          <Link
-            to="/dashboard"
-            className="bg-groon transitions hover:bg-main flex-rows gap-4 text-white p-4 rounded-lg w-full"
-          >
-            <FiLogIn /> Sign In
-          </Link>
-          <p className="text-center text-border">
+      <AuthCard
+        title="Welcome back"
+        subtitle="Sign in to continue watching."
+        footer={
+          <>
             Don't have an account?{" "}
-            <Link to="/register" className="text-dryGray font-semibold ml-2">
-              Sign Up
-            </Link>
-          </p>
-        </div>
-      </div>
+            <Link to="/register" className="font-semibold text-[#f4b942] hover:underline">Sign up</Link>
+          </>
+        }
+      >
+        <form onSubmit={submit} className="mt-8 flex flex-col gap-5">
+          <Input label="Email address" type="email" name="email" autoComplete="email" placeholder="cineverse@gmail.com" />
+          <Input label="Password" type="password" name="password" autoComplete="current-password" placeholder="Your password" />
+          <button
+            type="submit"
+            className="mt-2 flex w-full items-center justify-center gap-3 rounded-full bg-[#f4b942] px-6 py-4 font-bold text-black transition hover:bg-white"
+          >
+            <FiLogIn /> Sign in
+          </button>
+        </form>
+      </AuthCard>
     </Layout>
   );
 };

@@ -1,12 +1,8 @@
-import React from "react";
+
+import React, { useState } from "react";
 import MainModal from "./MainModal";
-import {
-  FaFacebook,
-  FaPinterest,
-  FaTelegram,
-  FaTwitter,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaFacebook, FaPinterest, FaTelegram, FaTwitter, FaWhatsapp, FaCheck, FaRegCopy } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -15,36 +11,64 @@ import {
   PinterestShareButton,
   EmailShareButton,
 } from "react-share";
-import { MdEmail } from "react-icons/md";
+
 const ShareModal = ({ modalOpen, setModalOpen, movie }) => {
-  const shareData = [
-    { icon: FaFacebook, shareButton: FacebookShareButton },
-    { icon: FaTwitter, shareButton: TwitterShareButton },
-    { icon: FaTelegram, shareButton: TelegramShareButton },
-    { icon: FaWhatsapp, shareButton: WhatsappShareButton },
-    { icon: FaPinterest, shareButton: PinterestShareButton },
-    { icon: MdEmail, shareButton: EmailShareButton },
+  const [copied, setCopied] = useState(false);
+  const origin = `${window.location.protocol}//${window.location.host}`;
+  const url = `${origin}/movie/${encodeURIComponent(movie.name)}`;
+  const text = `Watch ${movie.name} on Cineverse`;
+
+  const networks = [
+    { label: "Facebook", Icon: FaFacebook, Button: FacebookShareButton, extra: { quote: text } },
+    { label: "Twitter", Icon: FaTwitter, Button: TwitterShareButton, extra: { title: text } },
+    { label: "Telegram", Icon: FaTelegram, Button: TelegramShareButton, extra: { title: text } },
+    { label: "WhatsApp", Icon: FaWhatsapp, Button: WhatsappShareButton, extra: { title: text } },
+    { label: "Pinterest", Icon: FaPinterest, Button: PinterestShareButton, extra: { media: `${origin}/images/${movie.titleImage}`, description: text } },
+    { label: "Email", Icon: MdEmail, Button: EmailShareButton, extra: { subject: text, body: movie.desc } },
   ];
-  const url = `${window.location.protocol}//${window.location.host}/movie/${movie.name}`;
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard blocked: the link is still selectable in the field */
+    }
+  };
+
   return (
     <MainModal modalOpen={modalOpen} setModalOpen={setModalOpen}>
-      <div className="inline-block sm:w-4/5 border border-border  rounded-2xl md:w-3/5 lg:w-2/5 w-full align-middle p-10  h-full bg-main text-white">
-        <h2 className="text-2xl ">
-          Share <span className="text-xl font-bold">'{movie?.name}'</span>
-        </h2>
-        <form className="flex-rows flex-wrap gap-6 mt-6">
-          {shareData.map((data, index) => (
-            <data.shareButton
-              key={index}
-              url={url}
-              quote="Cineverse | World of Cinema"
-            >
-              <div className="w-12 transitions hover:bg-groon flex-colo text-lg h-12 bg-white rounded bg-opacity-30 ">
-                <data.icon />
-              </div>
-            </data.shareButton>
-          ))}
-        </form>
+      <h2 className="cv-display pr-12 text-2xl font-extrabold">
+        Share <span className="text-[#f4b942]">{movie.name}</span>
+      </h2>
+      <p className="mt-2 text-sm text-[#a79fb5]">Send this movie to a friend.</p>
+
+      <div className="mt-7 flex flex-wrap gap-3">
+        {networks.map(({ label, Icon, Button, extra }) => (
+          <Button key={label} url={url} htmlTitle={`Share on ${label}`} {...extra}>
+            <span className="flex size-12 items-center justify-center rounded-full bg-white/10 text-lg ring-1 ring-white/10 transition hover:bg-[#f4b942] hover:text-black">
+              <Icon />
+            </span>
+          </Button>
+        ))}
+      </div>
+
+      <div className="mt-7 flex items-center gap-2 rounded-xl bg-[#0d0a12] p-2 ring-1 ring-white/10">
+        <input
+          readOnly
+          value={url}
+          aria-label="Movie link"
+          onFocus={(e) => e.target.select()}
+          className="min-w-0 flex-1 bg-transparent px-3 text-sm text-[#a79fb5] focus:outline-none"
+        />
+        <button
+          type="button"
+          onClick={copy}
+          className="flex shrink-0 items-center gap-2 rounded-lg bg-[#f4b942] px-4 py-2.5 text-sm font-bold text-black transition hover:bg-white"
+        >
+          {copied ? <FaCheck /> : <FaRegCopy />} {copied ? "Copied" : "Copy"}
+        </button>
       </div>
     </MainModal>
   );
